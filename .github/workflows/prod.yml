@@ -38,6 +38,6 @@ jobs:
           # ARGS: "-rltgoDzvO --delete"
           SOURCE: 'dist/'
           REMOTE_HOST: 192.34.62.123
-          REMOTE_USER: mantis
-          TARGET: public_html/angular/free
+          REMOTE_USER: khaled
+          TARGET: dashboard
           EXCLUDE: '/node_modules/'

@@ -1,4 +1,4 @@
-@import '../../../../../../../scss/settings/color-variables.scss';
+@use 'src/scss/settings/color-variables' as *;
 
 .auth-main {
   position: relative;
