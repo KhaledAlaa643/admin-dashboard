@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 // project import
 
 import { NavContentComponent } from './nav-content/nav-content.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 @Component({
   selector: 'app-navigation',
-  imports: [NavContentComponent, CommonModule],
+  imports: [NavContentComponent, CommonModule,ClickOutsideDirective],
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })

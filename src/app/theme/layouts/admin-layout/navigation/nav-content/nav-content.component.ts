@@ -1,6 +1,6 @@
 // Angular import
-import { Component, OnInit, inject, output } from '@angular/core';
-import { CommonModule, Location, LocationStrategy } from '@angular/common';
+import { AfterViewInit, Component, inject, output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 // project import
@@ -30,9 +30,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
   templateUrl: './nav-content.component.html',
   styleUrls: ['./nav-content.component.scss']
 })
-export class NavContentComponent implements OnInit {
-  private location = inject(Location);
-  private locationStrategy = inject(LocationStrategy);
+export class NavContentComponent implements AfterViewInit {
   private iconService = inject(IconService);
 
   // public props
@@ -45,7 +43,7 @@ export class NavContentComponent implements OnInit {
   currentApplicationVersion = environment.appVersion;
 
   navigation = NavigationItems;
-  windowWidth = window.innerWidth;
+  windowWidth: number = window.innerWidth;
 
   // Constructor
   constructor() {
@@ -65,41 +63,25 @@ export class NavContentComponent implements OnInit {
     this.navigations = NavigationItems;
   }
 
-  // Life cycle events
-  ngOnInit() {
+  ngAfterViewInit() {
     if (this.windowWidth < 1025) {
-      (document.querySelector('.coded-navbar') as HTMLDivElement).classList.add('menupos-static');
-    }
-  }
-
-  fireOutClick() {
-    let current_url = this.location.path();
-    const baseHref = this.locationStrategy.getBaseHref();
-    if (baseHref) {
-      current_url = baseHref + this.location.path();
-    }
-    const link = "a.nav-link[ href='" + current_url + "' ]";
-    const ele = document.querySelector(link);
-    if (ele !== null && ele !== undefined) {
-      const parent = ele.parentElement;
-      const up_parent = parent?.parentElement?.parentElement;
-      const last_parent = up_parent?.parentElement;
-      if (parent?.classList.contains('coded-hasmenu')) {
-        parent.classList.add('coded-trigger');
-        parent.classList.add('active');
-      } else if (up_parent?.classList.contains('coded-hasmenu')) {
-        up_parent.classList.add('coded-trigger');
-        up_parent.classList.add('active');
-      } else if (last_parent?.classList.contains('coded-hasmenu')) {
-        last_parent.classList.add('coded-trigger');
-        last_parent.classList.add('active');
+      const navbar = document.querySelector('.coded-navbar') as HTMLDivElement;
+      if (navbar) {
+        navbar.classList.add('menupos-static');
       }
     }
   }
+  fireOutClick() {
+    const sidebar = document.querySelector('.coded-inner-navbar');
+    sidebar?.classList.remove('active');
+  }
 
   navMob() {
-    if (this.windowWidth < 1025 && document.querySelector('app-navigation.coded-navbar').classList.contains('mob-open')) {
+    const navElement = document.querySelector('app-navigation.coded-navbar') as HTMLElement | null;
+  
+    if (this.windowWidth < 1025 && navElement && navElement.classList.contains('mob-open')) {
       this.NavCollapsedMob.emit();
     }
   }
+  
 }
