@@ -1,0 +1,151 @@
+{
+"orders": [
+  {
+    "id": "84564564",
+    "name": "Camera Lens",
+    "quantity": "40",
+    "status": "Rejected",
+    "status_type": "bg-danger",
+    "amount": "$40,570"
+  },
+  {
+    "id": "84564786",
+    "name": "Laptop",
+    "quantity": "300",
+    "status": "Pending",
+    "status_type": "bg-warning",
+    "amount": "$180,139"
+  },
+  {
+    "id": "84564522",
+    "name": "Mobile",
+    "quantity": "355",
+    "status": "Approved",
+    "status_type": "bg-success",
+    "amount": "$50,139"
+  },
+  {
+    "id": "84564564",
+    "name": "Camera Lens",
+    "quantity": "40",
+    "status": "Rejected",
+    "status_type": "bg-danger",
+    "amount": "$40,570"
+  },
+  {
+    "id": "84564786",
+    "name": "Laptop",
+    "quantity": "300",
+    "status": "Pending",
+    "status_type": "bg-warning",
+    "amount": "$180,139"
+  },
+  {
+    "id": "84564522",
+    "name": "Mobile",
+    "quantity": "355",
+    "status": "Approved",
+    "status_type": "bg-success",
+    "amount": "$50,139"
+  },
+  {
+    "id": "84564564",
+    "name": "Camera Lens",
+    "quantity": "40",
+    "status": "Rejected",
+    "status_type": "bg-danger",
+    "amount": "$40,570"
+  },
+  {
+    "id": "84564786",
+    "name": "Laptop",
+    "quantity": "300",
+    "status": "Pending",
+    "status_type": "bg-warning",
+    "amount": "$180,139"
+  },
+  {
+    "id": "84564522",
+    "name": "Mobile",
+    "quantity": "355",
+    "status": "Approved",
+    "status_type": "bg-success",
+    "amount": "$50,139"
+  },
+  {
+    "id": "84564786",
+    "name": "Laptop",
+    "quantity": "300",
+    "status": "Pending",
+    "status_type": "bg-warning",
+    "amount": "$180,139"
+  }
+],
+"transactions":[
+  {
+    "title": "Payment Received",
+    "time": "2 hours ago",
+    "amount": "$150.00",
+    "percentage": "+2.5%",
+    "background": "bg-success"
+  },
+  {
+    "title": "Subscription Renewal",
+    "time": "Yesterday",
+    "amount": "$29.99",
+    "percentage": "-1.2%",
+    "background": "bg-warning"
+  },
+  {
+    "title": "Refund Issued",
+    "time": "3 days ago",
+    "amount": "-$45.00",
+    "percentage": "-0.8%",
+    "background": "bg-danger"
+  },
+  {
+    "title": "Invoice Sent",
+    "time": "April 15, 2025",
+    "amount": "$200.00",
+    "percentage": "+4.3%",
+    "background": "bg-primary"
+  },
+  {
+    "title": "Service Fee",
+    "time": "April 13, 2025",
+    "amount": "-$10.00",
+    "percentage": "-0.5%",
+    "background": "bg-secondary"
+  }
+],
+"notifications":[
+  {
+    "iconType": "gift",
+    "iconBgClass": "bg-light-success",
+    "time": "3:00 AM",
+    "contentHtml": "It's Khaled Alaa's birthday today.",
+    "subtext": "2 min ago"
+  },
+  {
+    "iconType": "message",
+    "iconBgClass": "bg-light-primary",
+    "time": "6:00 PM",
+    "contentHtml": "Aida Burg</b> commented your post.",
+    "subtext": "5 August"
+  },
+  {
+    "iconType": "setting",
+    "iconBgClass": "bg-light-danger",
+    "time": "2:45 PM",
+    "contentHtml": "Your Profile is Complete &nbs'; 60%</b>",
+    "subtext": "7 hours ago"
+  },
+  {
+    "iconType": "phone",
+    "iconBgClass": "bg-light-primary",
+    "time": "9:10 PM",
+    "contentHtml":" Cristina Danny invited to jo'n Meeting",
+    "subtext": "Daily scrum meeting time"
+  }
+]
+}   

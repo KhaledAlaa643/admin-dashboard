@@ -1,0 +1,38 @@
+<div class="col-md-12 col-xl-8">
+  <h5 class="mb-3">Recent Orders</h5>
+  <div class="card tbl-card">
+      <table class="table table-primary table-striped table-responsive table-hover mb-0">
+        <thead>
+          <tr class="text-center">
+            <th>#</th>
+            <th>TRACKING NO.</th>
+            <th>PRODUCT NAME</th>
+            <th>STATUS</th>
+            <th >TOTAL ORDER</th>
+            <th >TOTAL AMOUNT</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (order of orders | paginate: { itemsPerPage: 5, currentPage: p }; let i = $index; track order) {
+            <tr class="text-center">
+              <td> {{i+1}} </td>
+              <td>
+                <a href="javascript:" class="text-muted">{{ order.id }}</a>
+              </td>
+              <td>{{ order.name }}</td>
+              <td>
+                <span class="d-block">
+                  <i class="badge-circle {{ order.status_type }} f-10 m-r-5"></i>
+                  {{ order.status }}
+                </span>
+              </td>
+              <td >{{ order.quantity }}</td>
+              <td >{{ order.amount }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  </div>
+</div>
