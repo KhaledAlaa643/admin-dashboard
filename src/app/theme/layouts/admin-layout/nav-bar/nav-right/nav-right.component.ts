@@ -32,10 +32,11 @@ import {
 
 import { NgbDropdownModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { DataService } from 'src/app/core/services/data.service';
 import { INotificationItem } from './modal/notifications.interface';
 import { CommonModule } from '@angular/common';
 import { UserService } from 'src/app/core/services/user.service';
+import { DataServiceInterface } from 'src/app/core/modal/data.interface';
+import { DATA_SERVICE_TOKEN } from 'src/main';
 
 @Component({
   selector: 'app-nav-right',
@@ -44,8 +45,6 @@ import { UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./nav-right.component.scss']
 })
 export class NavRightComponent implements OnInit{
-
-  
   private iconService = inject(IconService);
   isLoggedIn: boolean
   notifications!: INotificationItem[]
@@ -55,7 +54,8 @@ export class NavRightComponent implements OnInit{
   windowWidth: number;
   screenFull: boolean = true;
   userName!:string
-  constructor(private dataService: DataService, private userService: UserService) {
+  private dataService = inject<DataServiceInterface>(DATA_SERVICE_TOKEN);
+  constructor(private userService: UserService) {
     this.windowWidth = window.innerWidth;
     this.iconService.addIcon(
       ...[
@@ -82,7 +82,6 @@ export class NavRightComponent implements OnInit{
       ]
     );
   }
-  debugger
   ngOnInit(): void {
     this.userService.isLoggedIn$.subscribe(isLogged => this.isLoggedIn = isLogged)
     this.userService.userName$.subscribe(name => {

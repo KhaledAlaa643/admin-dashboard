@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ITransactions } from './model/transactions.interface';
-import { DataService } from 'src/app/core/services/data.service';
+import { DataServiceInterface } from 'src/app/core/modal/data.interface';
+import { DATA_SERVICE_TOKEN } from 'src/main';
 
 @Component({
   selector: 'app-transactions',
@@ -9,7 +10,7 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class TransactionsComponent implements OnInit {
   transactions: ITransactions[]
-  constructor(private dataService:DataService){}
+  private dataService = inject<DataServiceInterface>(DATA_SERVICE_TOKEN);
   ngOnInit(): void {
     this.dataService.fetchData<ITransactions>("transactions").subscribe(transactions => this.transactions = transactions )
   }
